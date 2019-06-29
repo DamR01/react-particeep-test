@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import NavBar from './NavBar';
+import MovieCard from './movieCard';
 import './App.css';
 
 class App extends React.Component {
@@ -11,6 +12,7 @@ class App extends React.Component {
     return (
       <Fragment>
         <NavBar />
+        <MovieCard />
       </Fragment>
     );
   }
