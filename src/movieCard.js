@@ -18,6 +18,7 @@ class MovieCard extends React.Component {
     };
   }
 
+  /*This function is used to like a movie. We send props to the App Compoenent : movie Title & the like state */
   handleClick = () => {
     var isLike = !this.state.like;
     this.setState({
@@ -26,6 +27,7 @@ class MovieCard extends React.Component {
     this.props.handleClickFromApp(isLike, this.props.movieTitle);
   };
 
+  /*This functions is used to delete a movie card */
   handleClickDelete = () => {
     this.setState({
       isHidden: 'none'
