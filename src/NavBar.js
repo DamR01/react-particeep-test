@@ -61,7 +61,9 @@ class NavBar extends React.Component {
                 onClick={this.togglePopOver}
                 color="secondary"
               >
-                {' films'}
+                {this.props.moviesCount}
+
+                {this.props.moviesCount > 1 ? ' films' : ' film'}
               </Button>
               <Popover
                 placement="bottom"
@@ -70,7 +72,7 @@ class NavBar extends React.Component {
                 toggle={this.togglePopOver}
               >
                 <PopoverHeader>Derniers films</PopoverHeader>
-                <PopoverBody> </PopoverBody>
+                <PopoverBody>{this.props.moviesNameList} </PopoverBody>
               </Popover>
             </Nav>
           </Collapse>
