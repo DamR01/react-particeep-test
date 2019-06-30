@@ -20,7 +20,11 @@ class NavBar extends React.Component {
     this.state = {
       isOpenNavBar: false,
       isOpenPopOver: false,
-      category: []
+      category: [],
+      display: '',
+      displayO: '',
+      displayS: '',
+      displayT: ''
     };
   }
 
@@ -33,6 +37,58 @@ class NavBar extends React.Component {
   togglePopOver = () => {
     this.setState({
       isOpenPopOver: !this.state.isOpenPopOver
+    });
+  };
+
+  /*The displays functions belows display the number of movies on category when you click on category button */
+  displayCategoryZero = category => {
+    let data = 0;
+    this.props.moviesCat.map((category, i) => {
+      if (this.state.category[0] === category.category) {
+        data++;
+      }
+      return data;
+    });
+    this.setState({
+      display: data
+    });
+  };
+
+  displayCategoryOne = category => {
+    let dataOne = 0;
+    this.props.moviesCat.map((category, i) => {
+      if (this.state.category[1] === category.category) {
+        dataOne++;
+      }
+      return dataOne;
+    });
+    this.setState({
+      displayO: dataOne
+    });
+  };
+
+  displayCategoryTwo = category => {
+    let dataSecond = 0;
+    this.props.moviesCat.map((category, i) => {
+      if (this.state.category[2] === category.category) {
+        dataSecond++;
+      }
+      return dataSecond;
+    });
+    this.setState({
+      displayS: dataSecond
+    });
+  };
+  displayCategoryThree = category => {
+    let dataThird = 0;
+    this.props.moviesCat.map((category, i) => {
+      if (this.state.category[3] === category.category) {
+        dataThird++;
+      }
+      return dataThird;
+    });
+    this.setState({
+      displayT: dataThird
     });
   };
   render() {
@@ -83,17 +139,29 @@ class NavBar extends React.Component {
                 <PopoverHeader>Derniers films</PopoverHeader>
                 <PopoverBody>{this.props.moviesNameList} </PopoverBody>
               </Popover>
-              <Button style={{ marginLeft: 15 }}>
-                {this.state.category[0]}
+              <Button
+                onClick={this.displayCategoryZero}
+                style={{ marginLeft: 15 }}
+              >
+                {this.state.display} {this.state.category[0]}
               </Button>
-              <Button style={{ marginLeft: 15 }}>
-                {this.state.category[1]}
+              <Button
+                onClick={this.displayCategoryOne}
+                style={{ marginLeft: 15 }}
+              >
+                {this.state.displayO} {this.state.category[1]}
               </Button>
-              <Button style={{ marginLeft: 15 }}>
-                {this.state.category[2]}
+              <Button
+                onClick={this.displayCategoryTwo}
+                style={{ marginLeft: 15 }}
+              >
+                {this.state.displayS} {this.state.category[2]}
               </Button>
-              <Button style={{ marginLeft: 15 }}>
-                {this.state.category[3]}
+              <Button
+                onClick={this.displayCategoryThree}
+                style={{ marginLeft: 15 }}
+              >
+                {this.state.displayT} {this.state.category[3]}
               </Button>
             </Nav>
           </Collapse>
