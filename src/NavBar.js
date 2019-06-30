@@ -40,7 +40,7 @@ class NavBar extends React.Component {
     });
   };
 
-  /*The displays functions belows display the number of movies on category when you click on category button */
+  /*The displays functions below display the number of movies on category when you click on category button */
   displayCategoryZero = category => {
     let data = 0;
     this.props.moviesCat.map((category, i) => {
