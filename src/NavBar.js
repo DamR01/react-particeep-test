@@ -20,7 +20,7 @@ class NavBar extends React.Component {
     this.state = {
       isOpenNavBar: false,
       isOpenPopOver: false,
-      viewOnlyLike: false
+      category: []
     };
   }
 
@@ -36,6 +36,15 @@ class NavBar extends React.Component {
     });
   };
   render() {
+    /*here we get movies category to display them on navbar button */
+    let moviesCategory = this.props.moviesCat.map((cat, i) => {
+      let categoryCopy = [...this.state.category];
+      if (categoryCopy.indexOf(cat.category) < 0) {
+        this.setState({
+          category: categoryCopy.concat([cat.category])
+        });
+      }
+    });
     return (
       <div style={{ marginBottom: 90 }}>
         <Navbar color="dark" dark expand="md" fixed="top">
@@ -74,6 +83,18 @@ class NavBar extends React.Component {
                 <PopoverHeader>Derniers films</PopoverHeader>
                 <PopoverBody>{this.props.moviesNameList} </PopoverBody>
               </Popover>
+              <Button style={{ marginLeft: 15 }}>
+                {this.state.category[0]}
+              </Button>
+              <Button style={{ marginLeft: 15 }}>
+                {this.state.category[1]}
+              </Button>
+              <Button style={{ marginLeft: 15 }}>
+                {this.state.category[2]}
+              </Button>
+              <Button style={{ marginLeft: 15 }}>
+                {this.state.category[3]}
+              </Button>
             </Nav>
           </Collapse>
         </Navbar>

@@ -8,6 +8,7 @@ import {
   faThumbsDown
 } from '@fortawesome/free-solid-svg-icons';
 
+/*Creation MovieCard Component */
 class MovieCard extends React.Component {
   constructor(props) {
     super(props);
@@ -27,7 +28,7 @@ class MovieCard extends React.Component {
     this.props.handleClickFromApp(isLike, this.props.movieTitle);
   };
 
-  /*This functions is used to delete a movie card */
+  /*This functions is used to delete a movie card, we received props from App Component */
   handleClickDelete = () => {
     this.setState({
       isHidden: 'none'
@@ -36,6 +37,7 @@ class MovieCard extends React.Component {
   };
 
   render() {
+    /*FontawesomeIcon style */
     let styleHeart = {
       color: '#F7F7F7',
       position: 'absolute',
@@ -70,7 +72,6 @@ class MovieCard extends React.Component {
     if (this.state.like) {
       styleHeart.color = '#fc6861';
     }
-    console.log('this.props.movieCategory', this.props.movieCategory);
     const { movieTitle, movieCategory, movieLikes, movieDislikes } = this.props;
     return (
       <Col xs="12" sm="6" md="5" lg="4">

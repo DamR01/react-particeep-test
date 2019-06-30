@@ -26,6 +26,7 @@ class App extends React.Component {
     });
   }
 
+  /* This function is used when you like on a movieCard, we used it to push moviesNames on the NavBar PopOver and set a movie counter */
   handleClickHeart = (isLike, title) => {
     let moviesNameListCopy = [...this.state.moviesNameList];
     if (isLike) {
@@ -44,7 +45,7 @@ class App extends React.Component {
     }
   };
 
-  /* */
+  /* this function is used to delete movies, we send props to movieCard Component*/
   handleClickCross = movieId => {
     let index = this.state.movies.indexOf(movieId);
   };
@@ -81,6 +82,7 @@ class App extends React.Component {
         <NavBar
           moviesCount={this.state.moviesCount}
           moviesNameList={moviesLast}
+          moviesCat={this.state.movies}
         />
         <Container>
           <Row>{moviesList}</Row>
